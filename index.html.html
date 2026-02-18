@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html lang="sw">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Motion Banner - Dr. William</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            min-height: 100vh;
+            background: linear-gradient(135deg, #0a0f1a 0%, #1a1f2e 100%);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-family: 'Garamond', 'Trebuchet MS', serif;
+        }
+
+        /* CONTAINER YA BANNER */
+        .banner-container {
+            width: 90%;
+            max-width: 900px;
+            margin: 20px auto;
+            cursor: pointer;
+            text-decoration: none;
+            display: block;
+            position: relative;
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.5);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .banner-container:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 30px 60px rgba(212, 175, 55, 0.3);
+        }
+
+        /* BANNER YENYEWE */
+        .motion-banner {
+            position: relative;
+            width: 100%;
+            height: auto;
+            min-height: 250px;
+            background: linear-gradient(135deg, #000000, #1a0f00, #2d1a00, #4a2e00);
+            background-size: 400% 400%;
+            animation: gradientMove 10s ease infinite;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+        }
+
+        /* UHUISHAJI WA BACKGROUND */
+        @keyframes gradientMove {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+
+        /* STAREHE ZINAZOANGUKA (CONFETTI) */
+        .confetti {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+        }
+
+        .confetti span {
+            position: absolute;
+            width: 10px;
+            height: 10px;
+            background: #d4af37;
+            opacity: 0.6;
+            animation: confettiFall 4s linear infinite;
+            border-radius: 2px;
+        }
+
+        @keyframes confettiFall {
+            0% {
+                transform: translateY(-100px) rotate(0deg);
+                opacity: 0.8;
+            }
+            100% {
+                transform: translateY(400px) rotate(360deg);
+                opacity: 0;
+            }
+        }
+
+        /* UHUSIKA KWA KILA STAREHE */
+        .confetti span:nth-child(1) { left: 10%; animation-duration: 3s; background: #ffd700; }
+        .confetti span:nth-child(2) { left: 20%; animation-duration: 4s; animation-delay: 1s; background: #ffa500; }
+        .confetti span:nth-child(3) { left: 30%; animation-duration: 5s; animation-delay: 2s; background: #ff6b6b; }
+        .confetti span:nth-child(4) { left: 40%; animation-duration: 3.5s; animation-delay: 0.5s; background: #4CAF50; }
+        .confetti span:nth-child(5) { left: 50%; animation-duration: 4.5s; animation-delay: 1.5s; background: #d4af37; }
+        .confetti span:nth-child(6) { left: 60%; animation-duration: 3.2s; animation-delay: 2.2s; background: #ff4500; }
+        .confetti span:nth-child(7) { left: 70%; animation-duration: 5.2s; animation-delay: 0.8s; background: #9370db; }
+        .confetti span:nth-child(8) { left: 80%; animation-duration: 4.8s; animation-delay: 1.8s; background: #20b2aa; }
+        .confetti span:nth-child(9) { left: 90%; animation-duration: 3.8s; animation-delay: 2.5s; background: #f0e68c; }
+        .confetti span:nth-child(10) { left: 15%; animation-duration: 5.5s; animation-delay: 0.2s; background: #dda0dd; }
+        .confetti span:nth-child(11) { left: 25%; animation-duration: 4.2s; animation-delay: 1.2s; background: #b8860b; }
+        .confetti span:nth-child(12) { left: 35%; animation-duration: 3.9s; animation-delay: 2.8s; background: #cd5c5c; }
+        .confetti span:nth-child(13) { left: 45%; animation-duration: 5.8s; animation-delay: 0.9s; background: #9acd32; }
+        .confetti span:nth-child(14) { left: 55%; animation-duration: 4.7s; animation-delay: 1.9s; background: #ee82ee; }
+        .confetti span:nth-child(15) { left: 65%; animation-duration: 3.6s; animation-delay: 2.3s; background: #f4a460; }
+
+        /* MAANDISHI YA BANNER */
+        .banner-content {
+            position: relative;
+            z-index: 10;
+            text-align: center;
+            color: white;
+            padding: 40px 30px;
+            max-width: 800px;
+            width: 100%;
+        }
+
+        .banner-content h2 {
+            font-size: 3rem;
+            margin-bottom: 10px;
+            color: #d4af37;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.5), 0 0 20px rgba(212, 175, 55, 0.5);
+            animation: glow 2s ease-in-out infinite alternate;
+        }
+
+        @keyframes glow {
+            from { text-shadow: 2px 2px 4px rgba(0,0,0,0.5), 0 0 10px rgba(212,175,55,0.5); }
+            to { text-shadow: 2px 2px 4px rgba(0,0,0,0.5), 0 0 30px rgba(212,175,55,0.8); }
+        }
+
+        .banner-content p {
+            font-size: 1.3rem;
+            margin-bottom: 20px;
+            opacity: 0.9;
+            line-height: 1.6;
+        }
+
+        .highlight {
+            color: #d4af37;
+            font-weight: bold;
+            font-size: 1.5rem;
+        }
+
+        /* KITUFE CHA MWITO (CALL-TO-ACTION) */
+        .cta-button {
+            display: inline-block;
+            background: linear-gradient(135deg, #d4af37, #b8860b);
+            color: black;
+            font-weight: bold;
+            font-size: 1.3rem;
+            padding: 15px 40px;
+            border-radius: 50px;
+            text-decoration: none;
+            margin-top: 15px;
+            border: 2px solid #ffd700;
+            box-shadow: 0 5px 15px rgba(212, 175, 55, 0.4);
+            transition: all 0.3s ease;
+            animation: pulse 2s infinite;
+            letter-spacing: 1px;
+        }
+
+        @keyframes pulse {
+            0% { transform: scale(1); box-shadow: 0 5px 15px rgba(212,175,55,0.4); }
+            50% { transform: scale(1.05); box-shadow: 0 10px 30px rgba(212,175,55,0.8); }
+            100% { transform: scale(1); box-shadow: 0 5px 15px rgba(212,175,55,0.4); }
+        }
+
+        .cta-button:hover {
+            transform: scale(1.05) translateY(-2px);
+            background: linear-gradient(135deg, #e5c100, #c99c00);
+            box-shadow: 0 10px 30px rgba(212, 175, 55, 0.8);
+            border-color: white;
+        }
+
+        /* IKONI ZA KUPAMBA */
+        .decor-icon {
+            position: absolute;
+            font-size: 3rem;
+            opacity: 0.2;
+            animation: rotate 10s linear infinite;
+        }
+
+        @keyframes rotate {
+            from { transform: rotate(0deg); }
+            to { transform: rotate(360deg); }
+        }
+
+        .icon1 { top: 20px; left: 20px; animation-duration: 15s; }
+        .icon2 { bottom: 20px; right: 20px; animation-duration: 12s; }
+        .icon3 { top: 50px; right: 80px; animation-duration: 20s; opacity: 0.15; }
+        .icon4 { bottom: 50px; left: 80px; animation-duration: 18s; opacity: 0.15; }
+
+        /* NGUVU ZA KUSAIDIA */
+        @media (max-width: 768px) {
+            .banner-content h2 { font-size: 2rem; }
+            .banner-content p { font-size: 1rem; }
+            .cta-button { font-size: 1.1rem; padding: 12px 30px; }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- MOTION BANNER - KINA BOFYA HAPA KUENDA KWA WEBPAGE -->
+    <a href="https://biotech-america-reseach.github.io/kilingex/" 
+       class="banner-container" 
+       target="_blank" 
+       rel="noopener noreferrer"
+       title="Bofya hapa kufungua tovuti yetu">
+        
+        <div class="motion-banner">
+            <!-- STAREHE ZA KUPAMBA (CONFETTI) -->
+            <div class="confetti">
+                <span></span><span></span><span></span><span></span><span></span>
+                <span></span><span></span><span></span><span></span><span></span>
+                <span></span><span></span><span></span><span></span><span></span>
+            </div>
+
+            <!-- MAPAMBO YA DECORATION -->
+            <div class="decor-icon icon1">⭐</div>
+            <div class="decor-icon icon2">✨</div>
+            <div class="decor-icon icon3">🌙</div>
+            <div class="decor-icon icon4">☀️</div>
+
+            <!-- MAUDHUI YA BANNER -->
+            <div class="banner-content">
+                <h2>DR. WILLIAM MTANZANIA</h2>
+                <p class="highlight">✨ KILINGE CHA RAMLI NA TIBA ASILIA ✨</p>
+                <p>Gundua siri za nyota zako na upate mwongozo wa kweli kutoka kwa Dr. William. <br>Huduma za kitabibu, ramli, na dawa asilia ziko hapa kwako.</p>
+                <span class="cta-button">🔮 BOFYA HAPA KUENDA 🔮</span>
+                <p style="margin-top: 15px; font-size: 0.9rem; opacity: 0.7;">Zaidi ya watu 10,000 wamenufaika</p>
+            </div>
+        </div>
+    </a>
+
+</body>
+</html>
